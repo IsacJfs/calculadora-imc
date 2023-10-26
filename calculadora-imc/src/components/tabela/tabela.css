@@ -1,0 +1,8 @@
+table, th, td {
+    font-size: 16px;
+    text-align: center;
+}
+
+#tituloTabela {
+    margin-bottom: 24px;
+}
