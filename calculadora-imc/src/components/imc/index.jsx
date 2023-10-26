@@ -4,6 +4,7 @@ import { useState } from "react";
 function IMC({ setResultadoIMC }) {
   const [peso, setPeso] = useState();
   const [altura, setAltura] = useState();
+  const [valorExibido, setValorExibido] = useState(null);
   
   const handlePesoChange = (e) => setPeso(e.target.value);
   const handleAlturaChange = (e) => setAltura(e.target.value);
@@ -13,6 +14,7 @@ function IMC({ setResultadoIMC }) {
     const imc = peso / (alturaMt * alturaMt);
     let imcArredondado = Math.round(imc * Math.pow(10, 2)) / Math.pow(10, 2);
     setResultadoIMC(imcArredondado);
+    setValorExibido(imcArredondado);
     return imcArredondado;
   };
 
@@ -36,7 +38,7 @@ function IMC({ setResultadoIMC }) {
         <div className='row justify-content-center'>
           <div className='col'>
             <h2 className='text-center d2'>Resultado</h2>
-            <p className='text-center h2'>= {calcularIMC() > 0 && calcularIMC()}</p>
+            <p className='text-center h2'>= {valorExibido}</p>
           </div>
         </div>
       </div>
